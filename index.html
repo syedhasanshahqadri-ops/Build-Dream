@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+            background: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .top {
+            background: #f5a623;
+            padding: 10px 7%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        header {
+            background: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f5a623;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #f5a623;
+        }
+
+        .hero {
+            min-height: 620px;
+            background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+            url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 7%;
+        }
+
+        .hero-text {
+            max-width: 650px;
+            color: white;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-text button {
+            padding: 15px 28px;
+            border: none;
+            background: #f5a623;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background: #d98b09;
+        }
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .heading p {
+            color: #f5a623;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .heading h2 {
+            font-size: 38px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service {
+            border: 1px solid #eee;
+            padding: 35px 25px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .service .icon {
+            width: 70px;
+            height: 70px;
+            background: #f5a623;
+            color: white;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service p {
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .about {
+            background: #f6f6f6;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            width: 50%;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+        }
+
+        .about-text {
+            width: 50%;
+        }
+
+        .about-text p:first-child {
+            color: #f5a623;
+            font-weight: bold;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            margin: 12px 0 20px;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,.75);
+            color: white;
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 7px;
+        }
+
+        .numbers {
+            background: #222;
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            padding: 55px 7%;
+        }
+
+        .number h2 {
+            font-size: 40px;
+            color: #f5a623;
+            margin-bottom: 8px;
+        }
+
+        .number p {
+            color: #ddd;
+        }
+
+        .contact {
+            background: #f5a623;
+            color: white;
+            text-align: center;
+            padding: 70px 7%;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 25px;
+        }
+
+        .contact button {
+            padding: 14px 30px;
+            background: white;
+            color: #222;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #151515;
+            color: white;
+            padding: 45px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        (max-width: 800px) {
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .services,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .about-img,
+            .about-text {
+                width: 100%;
+            }
+
+            .numbers {
+                grid-template-columns: 1fr 1fr;
+                gap: 35px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+         {
+            .top {
+                display: none;
+            }
+
+            header {
+                padding: 18px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 550px;
+                padding: 0 5%;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .heading h2 {
+                font-size: 30px;
+            }
+
+            .numbers {
+                padding: 50px 5%;
+            }
+
+            .number h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top">
+        <div>Welcome to Build Home</div>
+        <div>Call us: +92 300 9260391</div>
+    </div>
+
+    <header>
+        <div class="logo">Build<span>Home</span></div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>WE BUILD YOUR FUTURE</p>
+            <h1>Building Homes That Feel Like Home</h1>
+            <p>
+                We create strong, modern and comfortable spaces
+                for families and businesses.
+            </p>
+            <button>Get Started</button>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="heading">
+            <p>WHAT WE DO</p>
+            <h2>Our Services</h2>
+        </div>
+
+        <div class="services">
+
+            <div class="service">
+                <div class="icon">🏠</div>
+                <h3>Home Building</h3>
+                <p>
+                    We build beautiful and comfortable homes
+                    according to your needs and ideas.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="icon">🔨</div>
+                <h3>Renovation</h3>
+                <p>
+                    We improve old spaces and give them
+                    a fresh and modern look.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="icon">📐</div>
+                <h3>Architecture</h3>
+                <p>
+                    Our simple planning helps create useful,
+                    attractive and strong buildings.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section about" id="about">
+
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80">
+        </div>
+
+        <div class="about-text">
+            <p>ABOUT OUR COMPANY</p>
+            <h2>We Make Buildings Better</h2>
+            <p>
+                BuildHome is a small construction company focused
+                on creating reliable and modern buildings.
+                We work with our customers from the first idea
+                until the project is completed.
+            </p>
+            <p>
+                Our team believes that a good building should
+                look nice, feel comfortable and stay strong
+                for many years.
+            </p>
+            <button class="hero-text button">Read More</button>
+        </div>
+
+    </section>
+
+    <section class="section" id="projects">
+
+        <div class="heading">
+            <p>OUR WORK</p>
+            <h2>Recent Projects</h2>
+        </div>
+
+        <div class="projects">
+
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80">
+                <div class="project-info">
+                    <h3>Modern Family House</h3>
+                    <p>Residential Project</p>
+                </div>
+            </div>
+
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80">
+                <div class="project-info">
+                    <h3>Office Building</h3>
+                    <p>Commercial Project</p>
+                </div>
+            </div>
+
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80">
+                <div class="project-info">
+                    <h3>Luxury Interior</h3>
+                    <p>Interior Project</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="numbers">
+
+        <div class="number">
+            <h2>120+</h2>
+            <p>Projects Done</p>
+        </div>
+
+        <div class="number">
+            <h2>85</h2>
+            <p>Happy Clients</p>
+        </div>
+
+        <div class="number">
+            <h2>10</h2>
+            <p>Years Experience</p>
+        </div>
+
+        <div class="number">
+            <h2>25</h2>
+            <p>Team Members</p>
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Have A Project In Mind?</h2>
+        <p>Talk to us and let's build something great together.</p>
+        <button>Contact Us</button>
+    </section>
+
+    <footer>
+        <div>
+            <h3>BuildHome</h3>
+        </div>
+
+        <p>2026 BuildHome. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
